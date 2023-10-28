@@ -27,12 +27,15 @@ class OrderBody extends StatelessWidget {
               const Text(Texts.step1),
               const DateSelectionTextField(title: Texts.startDate),
               const SelectSenderDetailsWidget(),
-              if (state.isSenderAdding == true)
+              if (state.isSenderAdding)
                 ...senderWidgets()
               else
                 SavedLocationList(users: state.savedUsers ?? []),
-              SelectRecipientAddressWidget(),
-              ...recipientWidgets(),
+              const SelectRecipientAddressWidget(),
+              if (state.isRecipientAdding)
+                ...recipientWidgets()
+              else
+                SavedLocationList(users: state.savedUsers ?? []),
               const NextStepButton(),
             ],
           ),

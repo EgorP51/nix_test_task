@@ -10,3 +10,5 @@ abstract class OrderingEvent extends Equatable {
 class InitialEvent extends OrderingEvent {}
 
 class ChangeSenderDetails extends OrderingEvent {}
+
+class ChangeRecipientDetails extends OrderingEvent {}

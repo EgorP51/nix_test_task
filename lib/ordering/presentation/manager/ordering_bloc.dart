@@ -16,5 +16,8 @@ class OrderingBloc extends Bloc<OrderingEvent, OrderingState> {
     on<ChangeSenderDetails>((event, emit) {
       emit(state.copyWith(isSenderAdding: !state.isSenderAdding));
     });
+    on<ChangeRecipientDetails>((event, emit) {
+      emit(state.copyWith(isRecipientAdding: !state.isRecipientAdding));
+    });
   }
 }

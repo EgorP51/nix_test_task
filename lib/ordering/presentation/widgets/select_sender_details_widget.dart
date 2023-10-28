@@ -49,7 +49,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         alignment: Alignment.center,
                         height: 33,
                         decoration: BoxDecoration(
-                          color: (state.isSenderAdding == true)
+                          color: state.isSenderAdding
                               ? OrderColors.orange
                               : OrderColors.gray5,
                           borderRadius: BorderRadius.circular(
@@ -59,7 +59,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         child: Text(
                           Texts.addAddress,
                           style: OrderTextStyles.textRegular.copyWith(
-                            color: (state.isSenderAdding == true)
+                            color: state.isSenderAdding
                                 ? OrderColors.white
                                 : OrderColors.gray2,
                           ),
@@ -83,7 +83,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 6),
                         height: 33,
                         decoration: BoxDecoration(
-                          color: (state.isSenderAdding == true)
+                          color: state.isSenderAdding
                               ? OrderColors.gray5
                               : OrderColors.orange,
                           borderRadius: BorderRadius.circular(
@@ -93,7 +93,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         child: Text(
                           Texts.selectAddress,
                           style: OrderTextStyles.textRegular.copyWith(
-                            color: (state.isSenderAdding == true)
+                            color: state.isSenderAdding
                                 ? OrderColors.gray2
                                 : OrderColors.white,
                           ),
