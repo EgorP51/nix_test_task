@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nix_test_task/ordering/constants/texts.dart';
 import 'package:nix_test_task/ordering/constants/ui/widgets/custom_divider.dart';
+import 'package:nix_test_task/ordering/presentation/manager/ordering_bloc.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/add_address_button.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/date_selection_text_field.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/next_step_button.dart';
+import 'package:nix_test_task/ordering/presentation/widgets/saved_location_list.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/select_recipient_address_widget.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/select_sender_details_widget.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/text_field_with_title.dart';
@@ -13,22 +16,33 @@ class OrderBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const Text(Texts.step1),
-          const DateSelectionTextField(title: Texts.startDate),
-          ...senderWidgets(),
-          ...recipientWidgets(),
-          const NextStepButton(),
-        ],
-      ),
+    return BlocConsumer<OrderingBloc, OrderingState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text(Texts.step1),
+              const DateSelectionTextField(title: Texts.startDate),
+              const SelectSenderDetailsWidget(),
+              if (state.isSenderAdding == true)
+                ...senderWidgets()
+              else
+                SavedLocationList(users: state.savedUsers ?? []),
+              SelectRecipientAddressWidget(),
+              ...recipientWidgets(),
+              const NextStepButton(),
+            ],
+          ),
+        );
+      },
     );
   }
 
   List<Widget> senderWidgets() {
     return [
-      SelectSenderDetailsWidget(),
       const TextFieldWithTitle(
         title: Texts.fullName,
         labelText: Texts.nameLabel1,
@@ -64,7 +78,6 @@ class OrderBody extends StatelessWidget {
 
   List<Widget> recipientWidgets() {
     return [
-      SelectRecipientAddressWidget(),
       const TextFieldWithTitle(
         title: Texts.fullName,
         labelText: Texts.nameLabel2,

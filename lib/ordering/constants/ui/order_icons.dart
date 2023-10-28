@@ -10,6 +10,7 @@ class OrderIcons {
   static SvgPicture city = SvgPicture.asset('assets/icons/city.svg');
   static SvgPicture pin = SvgPicture.asset('assets/icons/pin.svg');
   static SvgPicture post = SvgPicture.asset('assets/icons/post.svg');
+  static SvgPicture edit = SvgPicture.asset('assets/icons/edit.svg');
 
   static Map<String, SvgPicture> iconTextFieldMap = {
     Texts.startDate: dateIcon,

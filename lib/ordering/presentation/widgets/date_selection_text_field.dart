@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nix_test_task/ordering/constants/numeric_constants.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_text_styles.dart';
-import 'package:nix_test_task/ordering/constants/ui/widgets/order_icons.dart';
+import 'package:nix_test_task/ordering/constants/ui/order_icons.dart';
 import 'package:nix_test_task/ordering/constants/ui/widgets/order_text_field.dart';
 
 class DateSelectionTextField extends StatefulWidget {

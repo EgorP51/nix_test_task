@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nix_test_task/ordering/presentation/manager/ordering_bloc.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/order_widget.dart';
 
 class OrderPage extends StatelessWidget {
@@ -6,6 +8,9 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const OrderWidget();
+    return BlocProvider(
+      create: (context) => OrderingBloc()..add(InitialEvent()),
+      child: const OrderWidget(),
+    );
   }
 }
