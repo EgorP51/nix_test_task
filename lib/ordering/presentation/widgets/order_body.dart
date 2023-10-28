@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nix_test_task/ordering/constants/texts.dart';
 import 'package:nix_test_task/ordering/constants/ui/widgets/custom_divider.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/add_address_button.dart';
+import 'package:nix_test_task/ordering/presentation/widgets/date_selection_text_field.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/next_step_button.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/select_recipient_address_widget.dart';
 import 'package:nix_test_task/ordering/presentation/widgets/select_sender_details_widget.dart';
@@ -16,7 +17,7 @@ class OrderBody extends StatelessWidget {
       child: Column(
         children: [
           const Text(Texts.step1),
-          const TextFieldWithTitle(title: Texts.startDate),
+          const DateSelectionTextField(title: Texts.startDate),
           ...senderWidgets(),
           ...recipientWidgets(),
           const NextStepButton(),
@@ -27,31 +28,73 @@ class OrderBody extends StatelessWidget {
 
   List<Widget> senderWidgets() {
     return [
-      const SelectSenderDetailsWidget(),
-      const TextFieldWithTitle(title: Texts.fullName),
-      const TextFieldWithTitle(title: Texts.email),
-      const TextFieldWithTitle(title: Texts.phoneNumber),
+      SelectSenderDetailsWidget(),
+      const TextFieldWithTitle(
+        title: Texts.fullName,
+        labelText: Texts.nameLabel1,
+      ),
+      const TextFieldWithTitle(
+        title: Texts.email,
+        labelText: Texts.emailLabel1,
+      ),
+      const TextFieldWithTitle(
+        title: Texts.phoneNumber,
+        labelText: Texts.phoneLabel1,
+      ),
       const CustomDivider(),
-      const TextFieldWithTitle(title: Texts.country),
-      const TextFieldWithTitle(title: Texts.city),
-      TextFieldWithTitle(title: Texts.addressLine(1)),
+      const TextFieldWithTitle(
+        title: Texts.country,
+        labelText: Texts.countryLabel1,
+      ),
+      const TextFieldWithTitle(
+        title: Texts.city,
+        labelText: Texts.cityLabel1,
+      ),
+      TextFieldWithTitle(
+        title: '${Texts.addressLine}1',
+        labelText: Texts.addressLabel1,
+      ),
       const AddAddressButton(),
-      const TextFieldWithTitle(title: Texts.postcode),
+      const TextFieldWithTitle(
+        title: Texts.postcode,
+        labelText: Texts.phoneLabel1,
+      ),
     ];
   }
 
   List<Widget> recipientWidgets() {
     return [
-      const SelectRecipientAddressWidget(),
-      const TextFieldWithTitle(title: Texts.fullName),
-      const TextFieldWithTitle(title: Texts.email),
-      const TextFieldWithTitle(title: Texts.phoneNumber),
+      SelectRecipientAddressWidget(),
+      const TextFieldWithTitle(
+        title: Texts.fullName,
+        labelText: Texts.nameLabel2,
+      ),
+      const TextFieldWithTitle(
+        title: Texts.email,
+        labelText: Texts.emailLabel2,
+      ),
+      const TextFieldWithTitle(
+        title: Texts.phoneNumber,
+        labelText: Texts.phoneLabel2,
+      ),
       const CustomDivider(),
-      const TextFieldWithTitle(title: Texts.country),
-      const TextFieldWithTitle(title: Texts.city),
-      TextFieldWithTitle(title: Texts.addressLine(1)),
+      const TextFieldWithTitle(
+        title: Texts.country,
+        labelText: Texts.countryLabel2,
+      ),
+      const TextFieldWithTitle(
+        title: Texts.city,
+        labelText: Texts.cityLabel2,
+      ),
+      TextFieldWithTitle(
+        title: '${Texts.addressLine}1',
+        labelText: Texts.addressLabel2,
+      ),
       const AddAddressButton(),
-      const TextFieldWithTitle(title: Texts.postcode),
+      const TextFieldWithTitle(
+        title: Texts.postcode,
+        labelText: Texts.postcodeLabel2,
+      ),
     ];
   }
 }

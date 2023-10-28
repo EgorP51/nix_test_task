@@ -20,5 +20,8 @@ class OrderTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
-  // add as needed
+  static TextStyle textRegular = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
 }
