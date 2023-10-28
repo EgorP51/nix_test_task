@@ -5,6 +5,10 @@ class OrderTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField();
+    return TextFormField(
+      decoration: const InputDecoration(
+        border: OutlineInputBorder()
+      ),
+    );
   }
 }
