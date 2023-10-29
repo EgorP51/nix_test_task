@@ -11,7 +11,8 @@ class NextStepButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: NumericConstants.defaultPadding,
+        horizontal: NumericConstants.defaultHorizontalPadding,
+        vertical: NumericConstants.defaultVerticalPadding * 2
       ),
       child: SizedBox(
         width: double.infinity,

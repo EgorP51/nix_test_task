@@ -36,8 +36,8 @@ class _DateSelectionTextFieldState extends State<DateSelectionTextField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: NumericConstants.defaultPadding / 2,
-        horizontal: NumericConstants.defaultPadding,
+        vertical: NumericConstants.defaultVerticalPadding,
+        horizontal: NumericConstants.defaultHorizontalPadding,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

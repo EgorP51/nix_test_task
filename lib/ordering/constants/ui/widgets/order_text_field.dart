@@ -9,6 +9,7 @@ class OrderTextField extends StatelessWidget {
     this.labelText,
     this.readOnly,
     this.onTap, this.controller,
+    this.contentPadding,
   });
 
   final Widget? icon;
@@ -16,6 +17,7 @@ class OrderTextField extends StatelessWidget {
   final bool? readOnly;
   final void Function()? onTap;
   final TextEditingController? controller;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class OrderTextField extends StatelessWidget {
         labelStyle: OrderTextStyles.textRegular.copyWith(
           color: OrderColors.gray1,
         ),
+        contentPadding: contentPadding,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(

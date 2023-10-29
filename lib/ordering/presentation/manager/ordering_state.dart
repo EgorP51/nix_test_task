@@ -5,21 +5,31 @@ class OrderingState extends Equatable {
     this.savedUsers,
     this.isRecipientAdding = true,
     this.isSenderAdding = true,
+    this.senderAddressLineCount = 1,
+    this.recipientAddressLineCount = 1,
   });
 
   final bool isSenderAdding;
   final bool isRecipientAdding;
   final List<UserModel>? savedUsers;
+  final int senderAddressLineCount;
+  final int recipientAddressLineCount;
 
   OrderingState copyWith({
     bool? isSenderAdding,
     bool? isRecipientAdding,
     List<UserModel>? savedUsers,
+    int? senderAddressLineCount,
+    int? recipientAddressLineCount,
   }) {
     return OrderingState(
       isSenderAdding: isSenderAdding ?? this.isSenderAdding,
       isRecipientAdding: isRecipientAdding ?? this.isRecipientAdding,
       savedUsers: savedUsers ?? this.savedUsers,
+      recipientAddressLineCount:
+          recipientAddressLineCount ?? this.recipientAddressLineCount,
+      senderAddressLineCount:
+          senderAddressLineCount ?? this.senderAddressLineCount,
     );
   }
 
@@ -29,6 +39,8 @@ class OrderingState extends Equatable {
       isSenderAdding,
       isRecipientAdding,
       savedUsers,
+      recipientAddressLineCount,
+      senderAddressLineCount,
     ];
   }
 }

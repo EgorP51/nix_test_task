@@ -33,4 +33,6 @@ class Texts {
   static const String cityLabel2= 'Naple';
   static const String addressLabel2 = 'Via Toledo 256';
   static const String postcodeLabel2 = '80100';
+
+  static const String search = 'Search';
 }

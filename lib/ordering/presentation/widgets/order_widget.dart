@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nix_test_task/ordering/constants/texts.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_colors.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_text_styles.dart';
-import 'package:nix_test_task/ordering/presentation/widgets/order_body.dart';
+import 'package:nix_test_task/ordering/presentation/widgets/common/order_body.dart';
 
 class OrderWidget extends StatelessWidget {
   const OrderWidget({super.key});

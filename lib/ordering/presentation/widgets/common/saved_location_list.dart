@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nix_test_task/ordering/constants/numeric_constants.dart';
+import 'package:nix_test_task/ordering/constants/texts.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_colors.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_icons.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_text_styles.dart';
+import 'package:nix_test_task/ordering/constants/ui/widgets/order_text_field.dart';
 import 'package:nix_test_task/ordering/data/models/user_model.dart';
 
 class SavedLocationList extends StatelessWidget {
@@ -12,11 +15,32 @@ class SavedLocationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(users?.length ?? 0, (index) {
-        return SavedLocationItem(user: users?[index]);
-      }),
+    return Column(mainAxisSize: MainAxisSize.min, children: [
+      const SearchField(),
+      ...List.generate(
+        users?.length ?? 0,
+        (index) {
+          return SavedLocationItem(user: users?[index]);
+        },
+      ),
+    ]);
+  }
+}
+
+class SearchField extends StatelessWidget {
+  const SearchField({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: NumericConstants.defaultHorizontalPadding,
+          vertical: NumericConstants.defaultVerticalPadding),
+      child: OrderTextField(
+        icon: Icon(CupertinoIcons.search),
+        labelText: Texts.search,
+        contentPadding: EdgeInsets.all(0),
+      ),
     );
   }
 }
@@ -30,8 +54,8 @@ class SavedLocationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: NumericConstants.defaultPadding / 2,
-        horizontal: NumericConstants.defaultPadding,
+        vertical: NumericConstants.defaultVerticalPadding,
+        horizontal: NumericConstants.defaultHorizontalPadding,
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -39,6 +63,10 @@ class SavedLocationItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: NumericConstants.defaultVerticalPadding,
+            horizontal: NumericConstants.defaultHorizontalPadding,
+          ),
           title: Text(
             user?.fullName ?? '',
             style: OrderTextStyles.headerSemiBold.copyWith(

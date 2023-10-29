@@ -13,11 +13,25 @@ class OrderingBloc extends Bloc<OrderingEvent, OrderingState> {
       List<UserModel> savedUsers = Data.savedUsers;
       emit(state.copyWith(savedUsers: savedUsers));
     });
+
     on<ChangeSenderDetails>((event, emit) {
       emit(state.copyWith(isSenderAdding: !state.isSenderAdding));
     });
+
     on<ChangeRecipientDetails>((event, emit) {
       emit(state.copyWith(isRecipientAdding: !state.isRecipientAdding));
+    });
+
+    on<AddSenderAddressLine>((event, emit) {
+      emit(state.copyWith(
+        senderAddressLineCount: state.senderAddressLineCount + 1,
+      ));
+    });
+
+    on<AddRecipientAddressLine>((event, emit) {
+      emit(state.copyWith(
+        recipientAddressLineCount: state.recipientAddressLineCount + 1,
+      ));
     });
   }
 }

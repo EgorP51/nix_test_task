@@ -9,31 +9,38 @@ class TextFieldWithTitle extends StatelessWidget {
     super.key,
     required this.title,
     required this.labelText,
+    this.icon,
   });
 
   final String title;
   final String labelText;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: NumericConstants.defaultPadding / 2,
-        horizontal: NumericConstants.defaultPadding,
+        vertical: NumericConstants.defaultVerticalPadding,
+        horizontal: NumericConstants.defaultHorizontalPadding,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            title,
-            style: OrderTextStyles.headerSemiBold.copyWith(fontSize: 14),
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: NumericConstants.defaultVerticalPadding / 2,
+            ),
+            child: Text(
+              title,
+              style: OrderTextStyles.headerSemiBold.copyWith(fontSize: 14),
+            ),
           ),
           OrderTextField(
             labelText: labelText,
             icon: Padding(
               padding: const EdgeInsets.all(12),
-              child: OrderIcons.iconTextFieldMap[title],
+              child: icon ?? OrderIcons.iconTextFieldMap[title],
             ),
           ),
         ],

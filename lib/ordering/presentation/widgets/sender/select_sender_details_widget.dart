@@ -6,27 +6,25 @@ import 'package:nix_test_task/ordering/constants/ui/order_colors.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_text_styles.dart';
 import 'package:nix_test_task/ordering/presentation/manager/ordering_bloc.dart';
 
-class SelectRecipientAddressWidget extends StatelessWidget {
-  const SelectRecipientAddressWidget({super.key});
+class SelectSenderDetailsWidget extends StatelessWidget {
+  const SelectSenderDetailsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OrderingBloc, OrderingState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: NumericConstants.defaultPadding / 2,
-            horizontal: NumericConstants.defaultPadding,
+            vertical: NumericConstants.defaultVerticalPadding,
+            horizontal: NumericConstants.defaultHorizontalPadding,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                Texts.recipientDetails,
+                Texts.senderDetails,
                 style: OrderTextStyles.headerBold.copyWith(
                   fontSize: 16,
                 ),
@@ -42,14 +40,14 @@ class SelectRecipientAddressWidget extends StatelessWidget {
                       ),
                       onTap: () {
                         BlocProvider.of<OrderingBloc>(context).add(
-                          ChangeRecipientDetails(),
+                          ChangeSenderDetails(),
                         );
                       },
                       child: Container(
                         alignment: Alignment.center,
                         height: 33,
                         decoration: BoxDecoration(
-                          color: state.isRecipientAdding
+                          color: state.isSenderAdding
                               ? OrderColors.orange
                               : OrderColors.gray5,
                           borderRadius: BorderRadius.circular(
@@ -59,7 +57,7 @@ class SelectRecipientAddressWidget extends StatelessWidget {
                         child: Text(
                           Texts.addAddress,
                           style: OrderTextStyles.textRegular.copyWith(
-                            color: state.isRecipientAdding
+                            color: state.isSenderAdding
                                 ? OrderColors.white
                                 : OrderColors.gray2,
                           ),
@@ -75,7 +73,7 @@ class SelectRecipientAddressWidget extends StatelessWidget {
                       ),
                       onTap: () {
                         BlocProvider.of<OrderingBloc>(context).add(
-                          ChangeRecipientDetails(),
+                          ChangeSenderDetails(),
                         );
                       },
                       child: Container(
@@ -83,7 +81,7 @@ class SelectRecipientAddressWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 6),
                         height: 33,
                         decoration: BoxDecoration(
-                          color: state.isRecipientAdding
+                          color: state.isSenderAdding
                               ? OrderColors.gray5
                               : OrderColors.orange,
                           borderRadius: BorderRadius.circular(
@@ -93,7 +91,7 @@ class SelectRecipientAddressWidget extends StatelessWidget {
                         child: Text(
                           Texts.selectAddress,
                           style: OrderTextStyles.textRegular.copyWith(
-                            color: state.isRecipientAdding
+                            color: state.isSenderAdding
                                 ? OrderColors.gray2
                                 : OrderColors.white,
                           ),

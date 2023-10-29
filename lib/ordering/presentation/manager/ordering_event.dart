@@ -12,3 +12,7 @@ class InitialEvent extends OrderingEvent {}
 class ChangeSenderDetails extends OrderingEvent {}
 
 class ChangeRecipientDetails extends OrderingEvent {}
+
+class AddSenderAddressLine extends OrderingEvent {}
+
+class AddRecipientAddressLine extends OrderingEvent {}

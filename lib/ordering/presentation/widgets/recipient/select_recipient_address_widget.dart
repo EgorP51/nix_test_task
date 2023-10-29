@@ -6,8 +6,8 @@ import 'package:nix_test_task/ordering/constants/ui/order_colors.dart';
 import 'package:nix_test_task/ordering/constants/ui/order_text_styles.dart';
 import 'package:nix_test_task/ordering/presentation/manager/ordering_bloc.dart';
 
-class SelectSenderDetailsWidget extends StatelessWidget {
-  const SelectSenderDetailsWidget({super.key});
+class SelectRecipientAddressWidget extends StatelessWidget {
+  const SelectRecipientAddressWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +18,15 @@ class SelectSenderDetailsWidget extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: NumericConstants.defaultPadding / 2,
-            horizontal: NumericConstants.defaultPadding,
+            vertical: NumericConstants.defaultVerticalPadding,
+            horizontal: NumericConstants.defaultHorizontalPadding,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                Texts.senderDetails,
+                Texts.recipientDetails,
                 style: OrderTextStyles.headerBold.copyWith(
                   fontSize: 16,
                 ),
@@ -42,14 +42,14 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                       ),
                       onTap: () {
                         BlocProvider.of<OrderingBloc>(context).add(
-                          ChangeSenderDetails(),
+                          ChangeRecipientDetails(),
                         );
                       },
                       child: Container(
                         alignment: Alignment.center,
                         height: 33,
                         decoration: BoxDecoration(
-                          color: state.isSenderAdding
+                          color: state.isRecipientAdding
                               ? OrderColors.orange
                               : OrderColors.gray5,
                           borderRadius: BorderRadius.circular(
@@ -59,7 +59,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         child: Text(
                           Texts.addAddress,
                           style: OrderTextStyles.textRegular.copyWith(
-                            color: state.isSenderAdding
+                            color: state.isRecipientAdding
                                 ? OrderColors.white
                                 : OrderColors.gray2,
                           ),
@@ -75,7 +75,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                       ),
                       onTap: () {
                         BlocProvider.of<OrderingBloc>(context).add(
-                          ChangeSenderDetails(),
+                          ChangeRecipientDetails(),
                         );
                       },
                       child: Container(
@@ -83,7 +83,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 6),
                         height: 33,
                         decoration: BoxDecoration(
-                          color: state.isSenderAdding
+                          color: state.isRecipientAdding
                               ? OrderColors.gray5
                               : OrderColors.orange,
                           borderRadius: BorderRadius.circular(
@@ -93,7 +93,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                         child: Text(
                           Texts.selectAddress,
                           style: OrderTextStyles.textRegular.copyWith(
-                            color: state.isSenderAdding
+                            color: state.isRecipientAdding
                                 ? OrderColors.gray2
                                 : OrderColors.white,
                           ),
