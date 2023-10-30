@@ -22,6 +22,7 @@ class OrderTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: OrderColors.orange,
       readOnly: readOnly ?? false,
       onTap: onTap,
       controller: controller,
