@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'ordering/presentation/pages/order_page.dart';
+import 'package:nix_test_task/ordering/presentation/pages/order_page.dart';
 
 void main() {
   runApp(const MyApp());

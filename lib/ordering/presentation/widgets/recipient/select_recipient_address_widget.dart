@@ -12,9 +12,7 @@ class SelectRecipientAddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OrderingBloc, OrderingState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(

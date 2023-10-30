@@ -16,8 +16,9 @@ class NextStepButton extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: NumericConstants.defaultHorizontalPadding,
-              vertical: NumericConstants.defaultVerticalPadding * 2),
+            horizontal: NumericConstants.defaultHorizontalPadding,
+            vertical: NumericConstants.defaultVerticalPadding * 2,
+          ),
           child: SizedBox(
             width: double.infinity,
             child: CupertinoButton(

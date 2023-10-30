@@ -12,10 +12,6 @@ class OrderTextStyles {
     color: OrderColors.black,
     fontWeight: FontWeight.w500,
   );
-  static TextStyle text1 = GoogleFonts.roboto(
-    fontSize: 32,
-    fontWeight: FontWeight.bold,
-  );
   static TextStyle textMedium = GoogleFonts.roboto(
     fontSize: 16,
     fontWeight: FontWeight.w500,

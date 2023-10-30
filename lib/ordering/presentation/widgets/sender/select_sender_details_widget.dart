@@ -45,7 +45,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                       },
                       child: Container(
                         alignment: Alignment.center,
-                        height: 33,
+                        height: NumericConstants.smallButtonHeight,
                         decoration: BoxDecoration(
                           color: state.isSenderAdding
                               ? OrderColors.orange
@@ -79,7 +79,7 @@ class SelectSenderDetailsWidget extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.center,
                         padding: const EdgeInsets.symmetric(vertical: 6),
-                        height: 33,
+                        height: NumericConstants.smallButtonHeight,
                         decoration: BoxDecoration(
                           color: state.isSenderAdding
                               ? OrderColors.gray5

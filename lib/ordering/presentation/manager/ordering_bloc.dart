@@ -40,31 +40,7 @@ class OrderingBloc extends Bloc<OrderingEvent, OrderingState> {
     });
 
     on<Validate>((event, emit) {
-      if (event.isSender) {
-        switch (event.title) {
-          case Texts.fullName:
-            add(ValidateSenderName(event.value));
-            break;
-          case Texts.email:
-            add(ValidateSenderEmail(event.value));
-            break;
-          case Texts.phoneNumber:
-            add(ValidateSenderPhone(event.value));
-            break;
-        }
-      } else {
-        switch (event.title) {
-          case Texts.fullName:
-            add(ValidateRecipientName(event.value));
-            break;
-          case Texts.email:
-            add(ValidateRecipientEmail(event.value));
-            break;
-          case Texts.phoneNumber:
-            add(ValidateRecipientPhone(event.value));
-            break;
-        }
-      }
+      _selectValidation(event, emit);
     });
 
     on<ValidateSenderName>((event, emit) {
@@ -110,5 +86,33 @@ class OrderingBloc extends Bloc<OrderingEvent, OrderingState> {
         );
       }
     });
+  }
+
+  void _selectValidation(Validate event, Emitter<OrderingState> emit) {
+    if (event.isSender) {
+      switch (event.title) {
+        case Texts.fullName:
+          add(ValidateSenderName(event.value));
+          break;
+        case Texts.email:
+          add(ValidateSenderEmail(event.value));
+          break;
+        case Texts.phoneNumber:
+          add(ValidateSenderPhone(event.value));
+          break;
+      }
+    } else {
+      switch (event.title) {
+        case Texts.fullName:
+          add(ValidateRecipientName(event.value));
+          break;
+        case Texts.email:
+          add(ValidateRecipientEmail(event.value));
+          break;
+        case Texts.phoneNumber:
+          add(ValidateRecipientPhone(event.value));
+          break;
+      }
+    }
   }
 }
