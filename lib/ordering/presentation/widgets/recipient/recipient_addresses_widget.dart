@@ -18,6 +18,7 @@ class RecipientAddressesWidget extends StatelessWidget {
           children: List.generate(
             state.recipientAddressLineCount,
             (index) => TextFieldWithTitle(
+              isSender: false,
               title: '${Texts.addressLine} ${index + 1}',
               labelText: Texts.addressLabel2,
               icon: OrderIcons.iconTextFieldMap[Texts.addressLine],

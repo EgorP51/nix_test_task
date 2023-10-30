@@ -17,23 +17,28 @@ class SenderInputFields extends StatelessWidget {
         TextFieldWithTitle(
           title: Texts.fullName,
           labelText: Texts.nameLabel1,
+          isSender: true,
         ),
         TextFieldWithTitle(
           title: Texts.email,
           labelText: Texts.emailLabel1,
+          isSender: true,
         ),
         TextFieldWithTitle(
           title: Texts.phoneNumber,
           labelText: Texts.phoneLabel1,
+          isSender: true,
         ),
         CustomDivider(),
         TextFieldWithTitle(
           title: Texts.country,
           labelText: Texts.countryLabel1,
+          isSender: true,
         ),
         TextFieldWithTitle(
           title: Texts.city,
           labelText: Texts.cityLabel1,
+          isSender: true,
         ),
         SenderAddressesWidget(),
         AddAddressButton(isSender: true),
@@ -41,6 +46,7 @@ class SenderInputFields extends StatelessWidget {
         TextFieldWithTitle(
           title: Texts.postcode,
           labelText: Texts.phoneLabel1,
+          isSender: true,
         ),
       ],
     );

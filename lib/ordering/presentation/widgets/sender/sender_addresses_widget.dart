@@ -21,6 +21,7 @@ class SenderAddressesWidget extends StatelessWidget {
               title: '${Texts.addressLine} ${index + 1}',
               labelText: Texts.addressLabel2,
               icon: OrderIcons.iconTextFieldMap[Texts.addressLine],
+              isSender: true,
             ),
           ),
         );

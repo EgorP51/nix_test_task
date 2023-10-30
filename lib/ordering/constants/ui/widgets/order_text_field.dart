@@ -8,20 +8,24 @@ class OrderTextField extends StatelessWidget {
     this.icon,
     this.labelText,
     this.readOnly,
-    this.onTap, this.controller,
+    this.onTap,
+    this.controller,
     this.contentPadding,
+    this.onChanged,
   });
 
   final Widget? icon;
   final String? labelText;
   final bool? readOnly;
   final void Function()? onTap;
+  final void Function(String)? onChanged;
   final TextEditingController? controller;
   final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       cursorColor: OrderColors.orange,
       readOnly: readOnly ?? false,
       onTap: onTap,
